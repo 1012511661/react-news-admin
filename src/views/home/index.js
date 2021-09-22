@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import { GetListData, GetDataId } from '../../api/home';
-import { Button } from 'antd';
 
 export default class HoneView extends Component {
 	constructor(props) {
@@ -15,19 +14,18 @@ export default class HoneView extends Component {
 	}
 
 	componentDidMount() {
-		GetListData().then((res) => {
+		GetListData().then(res => {
 			console.log(res, '555');
 		});
 		GetDataId('1').then(res => {
 			console.log(res, '66666');
-
 		});
 	}
 
 	render() {
 		return (
 			<div>
-				<Button type="primary">首页</Button>
+				这里是首页
 			</div>
 		);
 	}

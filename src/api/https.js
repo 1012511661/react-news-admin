@@ -7,7 +7,7 @@
 import axios from 'axios';
 // import * as commonConfig from "../common/config";
 // const baseURL = "https://www.fastmock.site/mock/4703481d35d40c6cd66743c7fbd7209e/react";
-const baseURL = 'http://localhost:9000/';
+const baseURL = 'http://localhost:9633/';
 
 const instance = axios.create({
 	baseURL,

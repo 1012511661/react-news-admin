@@ -18,7 +18,7 @@ export default class newsModal extends Component {
     }
 
     // componentDidUpdate componentWillReceiveProps
-    componentWillReceiveProps(preProps) {
+    UNSAFE_componentWillReceiveProps(preProps) {
         let {showModal, btnsList} = preProps;
         let _btnsList = [<Button key="back" className={'ml-10'} onClick={this.handleCancel}>取消</Button>];
         this.setState({visible: showModal, btnsList: showModal ? [...btnsList, _btnsList] : _btnsList});
@@ -32,7 +32,7 @@ export default class newsModal extends Component {
         const {visible, btnsList} = this.state;
         const {title, children} = this.props;
         return (
-            <Modal visible={visible} title={title} footer={btnsList}>
+            <Modal visible={visible} title={title} footer={btnsList} closable={false}>
                 {children}
             </Modal>
         );

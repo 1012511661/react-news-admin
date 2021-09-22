@@ -4,76 +4,69 @@
  * @describe:
  */
 
-import React, {Component} from 'react';
-import {Layout, Menu, Dropdown, Avatar} from 'antd';
-import {MenuUnfoldOutlined, MenuFoldOutlined, DownOutlined, UserOutlined, AlertOutlined} from '@ant-design/icons';
+import React, { Component } from 'react';
+import { Layout, Menu, Dropdown } from 'antd';
+import { MenuUnfoldOutlined, MenuFoldOutlined, AlertOutlined } from '@ant-design/icons';
 import store from '../store';
-import {CHANGE_MENU_TYPE, CHANGE_THEME_TYPE} from '../store/aciton/type';
+import { CHANGE_MENU_TYPE, CHANGE_THEME_TYPE } from '../store/aciton/type';
+import { TOKEN } from '../js/storage';
+import './layout.less';
 
-const {Header} = Layout;
+const { Header } = Layout;
 
 // 有状态组件
 export default class TopHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            collapsed: store.getState().publicReducer.collapsed,
-            theme: store.getState().publicReducer.theme
-        };
-        store.subscribe(() => {
-            this.setState({
-                collapsed: store.getState().publicReducer.collapsed,
-                theme: store.getState().publicReducer.theme
-            });
-        });
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			collapsed: store.getState().publicReducer.collapsed,
+			theme: store.getState().publicReducer.theme
+		};
+		store.subscribe(() => {
+			this.setState({
+				collapsed: store.getState().publicReducer.collapsed,
+				theme: store.getState().publicReducer.theme
+			});
+		});
+	}
 
-    onChangeCollapsed = () => {
-        store.dispatch({type: CHANGE_MENU_TYPE, value: !this.state.collapsed});
-    };
-    onChangeTheme = () => {
-        store.dispatch({type: CHANGE_THEME_TYPE, value: !this.state.theme});
-    }
-    menu = () => {
-        return (
-            <Menu>
-                <Menu.Item key="0">11111</Menu.Item>
-                <Menu.Item key="1">22222222</Menu.Item>
+	onChangeCollapsed = () => {
+		store.dispatch({ type: CHANGE_MENU_TYPE, value: !this.state.collapsed });
+	};
+	onChangeTheme = () => {
+		store.dispatch({ type: CHANGE_THEME_TYPE, value: !this.state.theme });
+	}
+	menu = () => {
+		return (
+			<Menu onClick={this.onClickMenu}>
+                <Menu.Item key="0">个人中心</Menu.Item>
                 <Menu.Divider/>
-                <Menu.Item key="3">退出</Menu.Item>
+                <Menu.Item key="1">退出</Menu.Item>
             </Menu>
-        );
-    };
+		);
+	};
+	onClickMenu = (e) => {
+		if (e.key === '1') {
+			TOKEN.clear();
+			// this.props.history.replace('/');
+		}
+	}
 
-    render() {
-        let {collapsed, theme} = this.state
-        return (
-            <Header style={{
-                padding: '0 16px',
-                backgroundColor: '#FFF',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
-            }}>
+	render() {
+		let { collapsed } = this.state
+		return (
+			<Header className="header-warp">
                 {collapsed ? <MenuUnfoldOutlined onClick={this.onChangeCollapsed}/> :
-                    <MenuFoldOutlined onClick={this.onChangeCollapsed}/>}
-                <div style={{
-                    width: '120px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                }}>
-                    <AlertOutlined title='改变主题风格' onClick={this.onChangeTheme}/>
-                    <span>欢迎回家</span>
-                    <Dropdown overlay={this.menu} trigger={['click']}>
+	                <MenuFoldOutlined onClick={this.onChangeCollapsed}/>}
+				<div className="header-warp-right">
+                    <AlertOutlined title='改变主题风格' className='icons' onClick={this.onChangeTheme}/>
+					{/*<span>欢迎回家</span>*/}
+					<Dropdown overlay={this.menu} trigger={['hover']}>
                         {/*href='#!' 禁止跳转*/}
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()} href='#!'>
-                            <Avatar size={20} icon={<UserOutlined/>}/> <DownOutlined/>
-                        </a>
-                    </Dropdown>,
+						<a className="ant-dropdown-link" onClick={e => e.preventDefault()} href='#!'>管理员</a>
+                    </Dropdown>
                 </div>
             </Header>
-        );
-    }
-
+		);
+	}
 }

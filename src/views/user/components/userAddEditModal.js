@@ -20,9 +20,8 @@ export default class userAddEditModal extends Component {
 
     formRef = React.createRef();
 
-    componentWillReceiveProps(preProps) {
+    UNSAFE_componentWillReceiveProps(preProps) {
         let {showModal, dataInfo} = preProps;
-        console.log(showModal, 'preProps')
         if (!showModal) return;
         this.setState({showModal});
         const userInfo = Object.keys(dataInfo).length ? {...dataInfo} : {

@@ -1,16 +1,37 @@
 @import '../style/index';
 
 .logo {
-  height: 36px;
-  line-height: 36px;
-  background-color: @content-bg-color;
-  text-align: center;
-  font-size: 18px;
+	height: 36px;
+	line-height: 36px;
+	background-color: @content-bg-color;
+	text-align: center;
+	font-size: 18px;
 }
 
-.theme-dark{
-  color: @theme-dark;
+.theme-dark {
+	color: @theme-dark;
 }
-.theme-light{
- color: @theme-light;
+
+.theme-light {
+	color: @theme-light;
+}
+
+.header-warp {
+	padding: 0 16px !important;
+	background-color: #FFF !important;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&-right {
+		width: 120px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		.ant-dropdown-link {
+			margin-left: 5px;
+			max-width: 150px;
+		}
+	}
 }

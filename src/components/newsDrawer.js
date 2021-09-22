@@ -5,7 +5,7 @@
 */
 
 import React, {Component} from 'react';
-import {Drawer, Button, Space, Radio, Modal} from 'antd';
+import {Drawer, Button} from 'antd';
 
 export default class newsDrawer extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ export default class newsDrawer extends Component {
         };
     }
 
-    componentWillReceiveProps(preProps) {
+    UNSAFE_componentWillReceiveProps(preProps) {
         let {showModal, btnsList} = preProps;
         let _btnsList = [<Button key="back" className={'ml-10'} onClick={this.handleCancel}>取消</Button>];
         this.setState({visible: showModal, btnsList: showModal ? [...btnsList, _btnsList] : _btnsList});

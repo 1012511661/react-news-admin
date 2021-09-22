@@ -25,7 +25,7 @@ export default class IndexRouter extends Component {
 					<Route
 						path="/"
 						render={() =>
-							TOKEN.getValue() ? <IndexLayout/> : <Redirect to='/login'></Redirect>
+							TOKEN.getValue() ? <IndexLayout/> : <Redirect to='/login'/>
 						}
 					/>
 				</Switch>
