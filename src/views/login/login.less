@@ -1,17 +1,33 @@
-.login-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+@import '../../style/index';
 
-  &-form {
-    width: 300px;
-  }
+.login {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
 
-  .save-btns {
-    button {
-      width: 100%;
-    }
-  }
+	&-particles {
+		position: absolute;
+		width: 100vw;
+		background-color: @border-color;
+
+	}
+
+	&-form {
+		width: 400px;
+		z-index: 100;
+		border: 1px solid @theme-light;
+		background-color: @theme-light;
+		padding: 24px !important;
+
+		.login-title {
+			text-align: center;
+		}
+
+		.save-btns {
+			width: 100%;
+		}
+	}
 }

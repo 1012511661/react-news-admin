@@ -21,7 +21,6 @@ export default class IndexRouter extends Component {
 			<HashRouter>
 				<Switch>
 					<Route path="/login" component={LoginView}/>
-					{/* <Route path="/" component={IndexLayout} /> */}
 					<Route
 						path="/"
 						render={() =>

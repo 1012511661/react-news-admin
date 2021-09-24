@@ -53,8 +53,7 @@ export default class authAddEditDrawer extends Component {
 					this.handleSuccess();
 				});
 			} else {
-				// id 需要手动添加
-				PostAuthInfo({ id: new Date().getTime(), isSystem: false, ...data }).then(res => {
+				PostAuthInfo({ isSystem: false, ...data }).then(res => {
 					this.handleSuccess();
 				})
 			}

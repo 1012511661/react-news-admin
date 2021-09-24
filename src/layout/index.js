@@ -7,8 +7,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import SideMenu from './layoutMenu';
-import TopHeader from './layouHeader';
+import LayoutMenu from './layoutMenu';
+import LayoutHeader from './layoutHeader';
 
 import HomeView from '../views/home';
 import UserView from '../views/user';
@@ -18,28 +18,47 @@ import RoleView from '../views/auth/role';
 import NotFoundPage from './404';
 
 import { Layout } from 'antd';
+// import { GetMenuList } from '../api/layout';
 
-const {Content} = Layout;
+const { Content } = Layout;
 export default class IndexLayout extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			menuList: []
+		};
+		this.menuMap = {
+			'/home': HomeView,
+			'/user/list': UserView,
+			'/auth/role': RoleView,
+			'/auth/list': AuthView
+
+		}
+	}
+
+	componentDidMount() {
+		// GetMenuList().then(res => {
+		// 	// this.setState({menuList: res});
+		// 	console.log(res,this.state, '333')
+		//
+		// });
 	}
 
 	render() {
+		// let { menuList } = this.state;
 		return (
-			<Layout style={{height: '100%'}}>
-				<SideMenu/>
-				<Layout className="site-layout">
-					<TopHeader/>
-					<Content className="site-layout-background"
-					         style={{
-						         margin: '24px 16px',
-						         padding: 24,
-						         minHeight: 280,
-						         backgroundColor: '#FFF'
-					         }}>
+			<Layout style={{ height: '100%' }}>
+				<LayoutMenu/>
+				<Layout className="layout">
+					<LayoutHeader/>
+					<Content className="layout-content">
 						<Switch>
+							{/*exact*/}
+							{/*{*/}
+							{/*	menuList.map(item=>*/}
+							{/*		<Route path={item.path} component={HomeView}/>*/}
+							{/*	)*/}
+							{/*}*/}
 							<Route path="/home" component={HomeView}/>
 							<Route path="/user/list" component={UserView}/>
 							<Route path="/auth/role" component={RoleView}/>

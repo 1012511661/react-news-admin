@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Dropdown } from 'antd';
 import { MenuUnfoldOutlined, MenuFoldOutlined, AlertOutlined } from '@ant-design/icons';
+import { withRouter } from 'react-router-dom';
 import store from '../store';
 import { CHANGE_MENU_TYPE, CHANGE_THEME_TYPE } from '../store/aciton/type';
 import { TOKEN } from '../js/storage';
@@ -15,7 +16,7 @@ import './layout.less';
 const { Header } = Layout;
 
 // 有状态组件
-export default class TopHeader extends Component {
+class LayoutHeader extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -48,7 +49,7 @@ export default class TopHeader extends Component {
 	onClickMenu = (e) => {
 		if (e.key === '1') {
 			TOKEN.clear();
-			// this.props.history.replace('/');
+			this.props.history.replace('/')
 		}
 	}
 
@@ -70,3 +71,5 @@ export default class TopHeader extends Component {
 		);
 	}
 }
+
+export default withRouter(LayoutHeader)

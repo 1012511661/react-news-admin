@@ -40,15 +40,13 @@ export default class roleAddEditModal extends Component {
 
 	onSave = () => {
 		this.formRef.current.validateFields().then(values => {
-			// this.setState({ loading: true });
-			console.log(values, '66')
 			let { id } = this.state
 			if (id) {
 				PatchRoleInfo(id, values).then(res => {
 					this.handleSuccess();
 				})
 			} else {
-				PostRoleList({ id: new Date().getTime(), isSystem: false, ...values }).then(res => {
+				PostRoleList({ isSystem: false, ...values }).then(res => {
 					this.handleSuccess();
 				});
 			}

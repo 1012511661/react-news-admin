@@ -15,7 +15,7 @@ import './layout.less';
 const {Sider} = Layout;
 const {SubMenu} = Menu;
 
-class SideMenu extends Component {
+class LayoutMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,13 +48,13 @@ class SideMenu extends Component {
     renderMenu = (menuList) => {
         return menuList.map(item => {
             if (Array.isArray(item.children) && item.children.length) {
-                return <SubMenu key={item.key} icon={this.state.iconList[item.key]} title={item.title}>
+                return <SubMenu key={item.path} icon={this.state.iconList[item.path]} title={item.title}>
                     {this.renderMenu(item.children)}
                 </SubMenu>;
             } else {
-                return <Menu.Item key={item.key} icon={this.state.iconList[item.key]}
+                return <Menu.Item key={item.path} icon={this.state.iconList[item.path]}
                                   onClick={() => {
-                                      this.props.history.push(item.key);
+                                      this.props.history.push(item.path);
                                   }}>{item.title}</Menu.Item>;
             }
         });
@@ -74,7 +74,7 @@ class SideMenu extends Component {
         let {collapsed, menuList, theme} = this.state;
         return (
             <Sider theme={theme ? 'light' : 'dark'} trigger={null} collapsible collapsed={collapsed}>
-                <div className="logo">{collapsed ? '后台' : '模拟新闻后台'}{theme}</div>
+                <div className="logo">{collapsed ? 'cTMS' : 'cTMS管理系统'}{theme}</div>
                 <Menu theme={theme ? 'light' : 'dark'} mode="inline" defaultSelectedKeys={this.activeRoute}
                       defaultOpenKeys={this.openRoute}>
                     {this.renderMenu(menuList)}
@@ -84,4 +84,4 @@ class SideMenu extends Component {
     }
 }
 
-export default withRouter(SideMenu);
+export default withRouter(LayoutMenu);

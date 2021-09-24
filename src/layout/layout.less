@@ -1,13 +1,8 @@
 @import '../style/index';
 
-.logo {
-	height: 36px;
-	line-height: 36px;
-	background-color: @content-bg-color;
-	text-align: center;
-	font-size: 18px;
-}
 
+
+// 主题颜色
 .theme-dark {
 	color: @theme-dark;
 }
@@ -16,9 +11,20 @@
 	color: @theme-light;
 }
 
+// 主体
+.layout {
+	&-content {
+		margin: 24px 16px;
+		padding: 24px;
+		min-height: 280px;
+		background-color: #FFF;
+	}
+}
+
+// 顶部导航
 .header-warp {
 	padding: 0 16px !important;
-	background-color: #FFF !important;
+	background-color: @theme-light !important;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -34,4 +40,13 @@
 			max-width: 150px;
 		}
 	}
+}
+
+// login
+.logo {
+	height: 36px;
+	line-height: 36px;
+	background-color: @theme-light;
+	text-align: center;
+	font-size: 18px;
 }

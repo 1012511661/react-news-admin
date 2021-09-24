@@ -4,37 +4,33 @@
  * @describe: 公共模态框
  */
 
-import React, {Component} from 'react';
-import {Modal, Button} from 'antd';
+import React, { Component } from 'react';
+import { Modal, Button } from 'antd';
 
 export default class newsModal extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: false,
-            visible: false,
-            btnsList: []
-        };
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			loading: false,
+			visible: false,
+			btnsList: []
+		};
+	}
 
-    // componentDidUpdate componentWillReceiveProps
-    UNSAFE_componentWillReceiveProps(preProps) {
-        let {showModal, btnsList} = preProps;
-        let _btnsList = [<Button key="back" className={'ml-10'} onClick={this.handleCancel}>取消</Button>];
-        this.setState({visible: showModal, btnsList: showModal ? [...btnsList, _btnsList] : _btnsList});
-    }
+	// componentDidUpdate componentWillReceiveProps
+	UNSAFE_componentWillReceiveProps(preProps) {
+		let { showModal, btnsList } = preProps;
+		let _btnsList = [<Button key="back" className={'ml-10'} onClick={this.handleCancel}>取消</Button>];
+		this.setState({ visible: showModal, btnsList: showModal ? [...btnsList, _btnsList] : _btnsList });
+	}
 
-    handleCancel = () => {
-        this.setState({visible: false});
-    };
+	handleCancel = () => {
+		this.setState({ visible: false });
+	};
 
-    render() {
-        const {visible, btnsList} = this.state;
-        const {title, children} = this.props;
-        return (
-            <Modal visible={visible} title={title} footer={btnsList} closable={false}>
-                {children}
-            </Modal>
-        );
-    }
+	render() {
+		const { visible, btnsList } = this.state;
+		const { title, children } = this.props;
+		return (<Modal visible={visible} title={title} footer={btnsList} closable={false}>{children}</Modal>);
+	}
 }
