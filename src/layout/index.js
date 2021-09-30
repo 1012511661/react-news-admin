@@ -14,6 +14,8 @@ import HomeView from '../views/home';
 import UserView from '../views/user';
 import AuthView from '../views/auth/auth';
 import RoleView from '../views/auth/role';
+import MyNewsView from '../views/news/news'
+import NewsCatalogueView from '../views/news/catalogue'
 
 import NotFoundPage from './404';
 
@@ -62,7 +64,9 @@ export default class IndexLayout extends Component {
 							<Route path="/home" component={HomeView}/>
 							<Route path="/user/list" component={UserView}/>
 							<Route path="/auth/role" component={RoleView}/>
-							<Route path="/auth/list" component={AuthView}/>
+                                          <Route path="/auth/list" component={AuthView}/>
+							<Route path="/news/news" component={MyNewsView}/>
+							<Route path="/news/catalogue" component={NewsCatalogueView}/>
 							<Redirect from='/' to='/home' exact/>
 							<Route path="*" component={NotFoundPage}/>
 						</Switch>

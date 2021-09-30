@@ -83,32 +83,27 @@ export default class authAddEditDrawer extends Component {
 			            children={
 				            <Form name="basic" ref={this.formRef} labelCol={{ span: 4 }}
 				                  wrapperCol={{ span: 20 }}>
-                                <Form.Item label="权限名称" name="authName"
-                                           rules={[{ required: true, message: 'Please input your username!' }]}>
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item label="权限编号" name="authCode"
-                                           rules={[{ required: true, message: 'Please input your username!' }]}>
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item label="是否应用" name="isUse">
-                                    <Radio.Group>
-                                        <Radio value={true}>是</Radio>
-	                                  <Radio value={false}>否</Radio>
-                                    </Radio.Group>
-                                </Form.Item>
-                                <Form.Item label="权限" className={'auth-drawer-tree-wrap'}>
-                                    <Tree
-	                                    checkable
-	                                    defaultExpandAll
-	                                    showLine
-	                                    checkedKeys={auths}
-	                                    onExpand={this.onExpand}
-	                                    onCheck={this.onCheck}
-	                                    treeData={treeData}
-                                    />
-                                </Form.Item>
-                            </Form>
+                                    <Form.Item label="权限名称" name="authName"
+                                               rules={[{ required: true, message: 'Please input your username!' }]}>
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item label="权限编号" name="authCode"
+                                               rules={[{ required: true, message: 'Please input your username!' }]}>
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item label="是否应用" name="isUse">
+                                        <Radio.Group>
+                                             <Radio value={true}>是</Radio>
+	                                       <Radio value={false}>否</Radio>
+                                        </Radio.Group>
+                                    </Form.Item>
+                                    <Form.Item label="权限" className={'auth-drawer-tree-wrap'}>
+                                        <Tree checkable defaultExpandAll showLine
+                                              checkedKeys={auths} treeData={treeData}
+                                              onExpand={this.onExpand} onCheck={this.onCheck}
+                                        />
+                                    </Form.Item>
+                               </Form>
 			            }
 			/>
 		)

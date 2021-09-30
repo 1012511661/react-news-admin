@@ -64,6 +64,26 @@
 		  "icon": null
 		}
 	  ]
+	},
+	{
+	  "id": 4,
+	  "path": "/news",
+	  "title": "新闻管理",
+	  "icon": null,
+	  "children": [
+		{
+		  "id": 41,
+		  "path": "/news/news",
+		  "title": "我的新闻",
+		  "icon": null
+		},
+		{
+		  "id": 42,
+		  "path": "/news/catalogue",
+		  "title": "目录管理",
+		  "icon": null
+		}
+	  ]
 	}
   ],
   "auths": [
@@ -78,7 +98,16 @@
 		311,
 		312,
 		321,
-		322
+		322,
+		21,
+		31,
+		32,
+		2,
+		3,
+		4,
+		42,
+		411,
+		4312
 	  ]
 	},
 	{
@@ -89,7 +118,8 @@
 	  "auths": [
 		211,
 		311,
-		321
+		321,
+		411
 	  ]
 	},
 	{
@@ -194,6 +224,43 @@
 		  ]
 		}
 	  ]
+	},
+	{
+	  "key": 4,
+	  "type": 1,
+	  "title": "新闻管理",
+	  "perms": "news",
+	  "children": [
+		{
+		  "key": 41,
+		  "type": 1,
+		  "title": "我的新闻",
+		  "perms": "news:news",
+		  "children": null
+		},
+		{
+		  "key": 42,
+		  "type": 1,
+		  "title": "目录管理",
+		  "perms": "news:catalogue",
+		  "children": [
+			{
+			  "key": 411,
+			  "type": 0,
+			  "title": "目录管理查看",
+			  "perms": "news:catalogue:read",
+			  "children": null
+			},
+			{
+			  "key": 4312,
+			  "type": 0,
+			  "title": "目录管理编辑",
+			  "perms": "news:catalogue:edit",
+			  "children": null
+			}
+		  ]
+		}
+	  ]
 	}
   ],
   "roles": [
@@ -257,6 +324,28 @@
 	  "userEmail": "ergerge",
 	  "isFreeze": false,
 	  "id": 4
+	}
+  ],
+  "news": [
+	{
+	  "id": 1,
+	  "newName": "第一个新闻",
+	  "status": 0
+	},
+	{
+	  "id": 2,
+	  "newName": "第二个新闻",
+	  "status": 1
+	},
+	{
+	  "id": 3,
+	  "newName": "第三个新闻",
+	  "status": 2
+	},
+	{
+	  "id": 4,
+	  "newName": "第四个新闻",
+	  "status": 3
 	}
   ]
 }

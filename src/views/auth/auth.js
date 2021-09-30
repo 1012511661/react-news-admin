@@ -47,11 +47,11 @@ export default class AuthView extends Component {
 				title: '操作',
 				width: 150,
 				render: (item) => {
-					return (<div style={{ 'display': item.isSystem ? 'none' : 'inline-block' }}>
-                                            <Button type="primary" shape="circle" size={'small'} icon={<EditOutlined/>}
-                                                    onClick={() => {
-	                                                    this.onEditAuth(item)
-                                                    }}/>
+					return (<div>
+                                           <Button type="primary" shape="circle" size={'small'} icon={<EditOutlined/>}
+                                                   onClick={() => {
+	                                                   this.onEditAuth(item)
+                                                   }}/>
                                            <Button danger shape="circle" size={'small'} className='ml-10'
                                                    icon={<DeleteOutlined/>}
                                                    onClick={() => {
@@ -134,13 +134,13 @@ export default class AuthView extends Component {
 		let { dataList, showModal, authInfo, treeData } = this.state;
 		return (
 			<div>
-                <Button type="primary" className='mb-15' onClick={() => {
-	                this.onEditAuth({})
-                }}>添加</Button>
-                <Table rowKey={item => item.id} dataSource={dataList} columns={this.columns} pagination={false}/>
-                <AuthAddEditDrawer showModal={showModal} dataInfo={authInfo} treeData={treeData}
+			    <Button type="primary" className='mb-15' onClick={() => {
+				    this.onEditAuth({})
+			    }}>添加</Button>
+                      <Table rowKey={item => item.id} dataSource={dataList} columns={this.columns} pagination={false}/>
+                      <AuthAddEditDrawer showModal={showModal} dataInfo={authInfo} treeData={treeData}
                                    onUpdataTable={this.onUpdateTable}/>
-            </div>
+                  </div>
 		);
 	}
 }
