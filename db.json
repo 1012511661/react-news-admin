@@ -269,61 +269,80 @@
 	  "roleName": "超级管理员",
 	  "roleCode": "ADMIN",
 	  "isSystem": true,
-	  "isUse": true
+	  "isUse": true,
+	  "authId": 1
 	},
 	{
 	  "id": 2,
 	  "roleName": "审核管理员",
 	  "roleCode": "AUDITOR",
 	  "isSystem": true,
-	  "isUse": true
+	  "isUse": true,
+	  "authId": 1
 	},
 	{
 	  "id": 3,
 	  "roleName": "编辑管理员",
 	  "roleCode": "EDITOR",
 	  "isSystem": true,
-	  "isUse": true
+	  "isUse": true,
+	  "authId": 2
 	},
 	{
 	  "isSystem": false,
 	  "roleName": "CRA",
 	  "roleCode": "CRA",
-	  "isUse": true,
-	  "id": 4
+	  "isUse": false,
+	  "id": 4,
+	  "authId": 3
 	},
 	{
 	  "isSystem": false,
 	  "roleName": "1212",
 	  "roleCode": "12121",
 	  "isUse": false,
-	  "id": 5
+	  "id": 5,
+	  "authId": 1
 	}
   ],
   "users": [
 	{
 	  "id": 1,
-	  "userName": "用户A",
-	  "userEmail": "11111@qq.com",
-	  "isFreeze": true
+	  "userName": "管理员",
+	  "userEmail": "admin@qq.com",
+	  "isFreeze": false,
+	  "roleId": 1,
+	  "isSystem": true
 	},
 	{
 	  "id": 2,
-	  "userName": "用户B",
-	  "userEmail": "22222@qq.com",
-	  "isFreeze": false
+	  "userName": "审核管理员",
+	  "userEmail": "audit@qq.com",
+	  "isFreeze": false,
+	  "roleId": 2,
+	  "isSystem": true
 	},
 	{
 	  "id": 3,
-	  "userName": "用户C",
-	  "userEmail": "33333@qq.com",
-	  "isFreeze": false
+	  "userName": "编辑管理员",
+	  "userEmail": "edit@qq.com",
+	  "isFreeze": false,
+	  "roleId": 3,
+	  "isSystem": true
 	},
 	{
 	  "userName": "reergerg",
 	  "userEmail": "ergerge",
 	  "isFreeze": false,
-	  "id": 4
+	  "id": 4,
+	  "roleId": 4
+	},
+	{
+	  "userName": "测试人员",
+	  "userEmail": "asdasdaqq.ccccccc",
+	  "isFreeze": false,
+	  "roleId": 5,
+	  "id": 5
 	}
   ],
   "news": [

@@ -48,15 +48,12 @@ export default class authAddEditDrawer extends Component {
 			let { id, auths } = this.state
 			let { authName, authCode, isUse } = values
 			let data = { id, authName, authCode, isUse, auths }
-			if (id) {
-				PatchAuthInfo(id, data).then(res => {
-					this.handleSuccess();
-				});
-			} else {
-				PostAuthInfo({ isSystem: false, ...data }).then(res => {
-					this.handleSuccess();
-				})
-			}
+			id ? PatchAuthInfo(id, data).then(res => {
+				this.handleSuccess();
+			}) : PostAuthInfo({ isSystem: false, ...data }).then(res => {
+				this.handleSuccess();
+			})
+
 		}).catch((err) => {
 		});
 	}

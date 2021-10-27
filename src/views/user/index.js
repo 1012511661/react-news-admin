@@ -51,9 +51,8 @@ export default class UserView extends Component {
                 title: '操作',
                 width: 150,
                 render: (item) => {
-                    return <div>
+                    return <div  style={{'display': item.isSystem ? 'none' : 'inline-block'}}>
                         <Button type="primary" className='ml-10' shape="circle" size={'small'}
-                                style={{'display': item.isFreeze ? 'none' : 'inline-block'}}
                                 icon={<EditOutlined/>}
                                 onClick={() => {
                                     this.onAddEditItem(item)
